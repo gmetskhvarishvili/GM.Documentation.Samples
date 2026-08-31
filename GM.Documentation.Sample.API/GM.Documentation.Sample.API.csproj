@@ -5,13 +5,15 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <!-- Emit XML docs next to the DLL so GM.Documentation can discover them at
-             AppContext.BaseDirectory and feed the summaries into the OpenAPI schema. -->
+             AppContext.BaseDirectory and feed the summaries into the OpenAPI schema. Not every
+             public member needs a summary for that purpose, so don't fail the build on gaps. -->
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="10.0.1" />
-        <PackageReference Include="GM.Documentation" Version="1.3.0" />
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="10.2.1" />
+        <PackageReference Include="GM.Documentation" Version="1.3.1" />
     </ItemGroup>
 
     <ItemGroup>
